@@ -1,11 +1,13 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 const handler = NextAuth({
+  trustHost: true, // 🔴 CLAVE PARA FIREBASE / PROXY
+
   providers: [
     Credentials({
       name: "Credentials",
@@ -21,11 +23,11 @@ const handler = NextAuth({
         });
         if (!user) return null;
 
-        const ok = await bcrypt.compare(
+        const valid = await bcrypt.compare(
           credentials.password,
           user.password
         );
-        if (!ok) return null;
+        if (!valid) return null;
 
         return {
           id: user.id,
@@ -35,7 +37,9 @@ const handler = NextAuth({
       },
     }),
   ],
+
   session: { strategy: "jwt" },
+
   callbacks: {
     async jwt({ token, user }) {
       if (user) token.role = (user as any).role;
@@ -51,3 +55,4 @@ const handler = NextAuth({
 });
 
 export { handler as GET, handler as POST };
+export const runtime = "nodejs";

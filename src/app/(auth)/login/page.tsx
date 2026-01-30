@@ -1,19 +1,32 @@
 "use client";
 
-import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    await signIn("credentials", {
-      email,
-      password,
-      callbackUrl: "/",
+
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
     });
+
+    if (!res.ok) {
+      alert("Login incorrecto");
+      return;
+    }
+
+    const data = await res.json();
+
+    if (data.role === "ADMIN") router.push("/admin");
+    if (data.role === "CLIENT") router.push("/client");
+    if (data.role === "PROVIDER") router.push("/provider");
   }
 
   return (

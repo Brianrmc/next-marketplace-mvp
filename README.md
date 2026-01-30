@@ -101,4 +101,39 @@ http://localhost:3000
 El layout global del dashboard vive en:
 src/app/(dashboard)/layout.tsx
 
+## 🧪 Testing
+
+### Manual Testing Checklist
+
+- [x] Usuario puede registrarse
+- [x] Usuario puede iniciar sesión
+- [x] Usuario puede cerrar sesión
+- [x] Usuario CLIENT no accede a /admin
+- [x] Usuario ADMIN puede ver usuarios
+- [x] Sidebar cambia según rol
+- [x] Logout elimina sesión correctamente
+
+### Automated Tests
+
+```bash
+npm run test
+
+
+## 🎨 Design System & Branding
+
+This project follows a corporate-first design system inspired by EP&O's brand identity.
+
+### Color Palette
+
+| Role        | Color Name          | Hex       | Usage |
+|------------|---------------------|-----------|-------|
+| Primary    | EP&O Blue           | #0A3D62   | Header, primary buttons, links |
+| Secondary  | Industrial Gray     | #4A5D73   | Backgrounds, cards, sidebar |
+| Accent     | Industrial Orange   | #F39C12   | Highlights, badges, actions |
+
+### Design Principles
+
+- Corporate an
+
+
 

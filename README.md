@@ -135,5 +135,23 @@ This project follows a corporate-first design system inspired by EP&O's brand id
 
 - Corporate an
 
+## 🌐 Public Landing & Marketplace
+
+The platform includes a public landing page designed to present the EP&O
+marketplace solution to visitors and potential clients.
+
+### Public Areas
+
+- Landing page with corporate branding
+- Public marketplace (read-only)
+- Authentication entry points
+
+### Authenticated Areas
+
+- Client dashboard
+- Provider inventory management
+- Admin control panel
+
+This separation allows a clear product flow and future scalability.
 
 

@@ -1,24 +1,22 @@
 import PublicTopbar from "@/components/layout/PublicTopbar";
 
-export default function MarketplacePublicPage() {
+export default function MarketplacePage() {
   return (
     <>
       <PublicTopbar />
 
-      <main className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-bold mb-6">
-          Marketplace
-        </h2>
+      <main className="max-w-7xl mx-auto px-6 py-16">
+        <h1 className="text-3xl font-bold mb-4">Marketplace</h1>
 
-        <p className="text-gray-600 mb-8">
-          Explora productos disponibles. Inicia sesión para comprar.
+        <p className="text-muted-foreground">
+          Explora productos disponibles. Para comprar, inicia sesión.
         </p>
 
-        {/* Aquí después irán productos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="border rounded p-4 bg-white">
-            Producto demo
-          </div>
+        {/* Grid de productos (mock por ahora) */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="border rounded p-4">Producto 1</div>
+          <div className="border rounded p-4">Producto 2</div>
+          <div className="border rounded p-4">Producto 3</div>
         </div>
       </main>
     </>

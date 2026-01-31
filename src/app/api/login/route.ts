@@ -23,7 +23,7 @@ export async function POST(req: Request) {
   });
 
   res.cookies.set("user-role", user.role, {
-    httpOnly: true,
+    httpOnly: false,
     path: "/",
   });
 

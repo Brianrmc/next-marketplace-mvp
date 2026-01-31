@@ -1,21 +1,16 @@
-export type Role = "ADMIN" | "CLIENT" | "PROVIDER";
+import { Role } from "./roles";
 
-export const NAVIGATION: Record<Role, { label: string; href: string }[]> = {
+export const NAVIGATION: Record<
+  Role,
+  { label: string; href: string }[]
+> = {
   ADMIN: [
-    { label: "Dashboard", href: "/admin" },
     { label: "Usuarios", href: "/admin/users" },
-    { label: "Productos", href: "/admin/products" },
   ],
-
   CLIENT: [
-    { label: "Inicio", href: "/client" },
-    { label: "Marketplace", href: "/client/market" },
-    { label: "Mis pedidos", href: "/client/orders" },
+    { label: "Marketplace", href: "/client" },
   ],
-
   PROVIDER: [
-    { label: "Panel", href: "/provider" },
     { label: "Productos", href: "/provider/products" },
-    { label: "Inventario", href: "/provider/inventory" },
   ],
 };

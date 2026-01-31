@@ -29,7 +29,6 @@ export async function POST(req: Request) {
       email,
       password: hashed,
       name,
-      // role = CLIENT por default (Prisma)
     },
   });
 

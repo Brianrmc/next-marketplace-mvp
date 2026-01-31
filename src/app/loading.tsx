@@ -9,7 +9,7 @@ export default function Loading() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(true);
-    }, 300); // mínimo visible (UX suave)
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);

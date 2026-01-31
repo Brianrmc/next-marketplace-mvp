@@ -6,7 +6,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const handler = NextAuth({
-  trustHost: true, // 🔴 CLAVE PARA FIREBASE / PROXY
+  trustHost: true,
 
   providers: [
     Credentials({

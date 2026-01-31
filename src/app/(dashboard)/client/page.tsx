@@ -7,7 +7,7 @@ export default function ClientPage() {
   const { hide } = useLoading();
 
   useEffect(() => {
-    hide(); // 👈 apaga loading al entrar
+    hide();
   }, [hide]);
 
   return (

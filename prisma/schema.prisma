@@ -1,11 +1,19 @@
+// ==============================
+// Prisma base config
+// ==============================
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = env("DATABASE_URL")
 }
+
+// ==============================
+// Enums
+// ==============================
 
 enum Role {
   ADMIN
@@ -13,11 +21,32 @@ enum Role {
   PROVIDER
 }
 
+// ==============================
+// Models
+// ==============================
+
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
   password  String
   name      String?
   role      Role     @default(CLIENT)
+  createdAt DateTime @default(now())
+
+  products Product[]
+}
+
+model Product {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  price       Float
+  stock       Int
+  imageUrl    String
+  isActive    Boolean @default(true)
+
+  providerId String
+  provider   User   @relation(fields: [providerId], references: [id])
+
   createdAt DateTime @default(now())
 }
